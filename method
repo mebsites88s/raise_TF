@@ -1,0 +1,17 @@
+Method 1:
+robots.txt:
+User-agent: googlebot
+User-agent: yahoobot
+User-agent: microsoftbot
+Disallow: /
+
+index.html:
+<html>
+<META http-equiv=”refresh” content=”3;URL=http://www.yourdomain.com/”>
+<a href=”http://www.yourdomain.com/”>http://www.yourdomain.com</a>
+</html>
+
+Method 2:
+.htaccess:
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} googlebot|yahoobot|microsoftbot [NC] RewriteRule ^.*$ – [R=403,L] Redirect 301 / http://www.yourdomain.com/
